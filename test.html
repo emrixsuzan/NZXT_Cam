@@ -1,1 +1,66 @@
-fdsa
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    #clock {
+      width: 200px;
+      height: 200px;
+      border: 1px solid #ccc;
+      border-radius: 50%;
+      position: relative;
+    }
+
+    #hour, #minute, #second {
+      position: absolute;
+      width: 50%;
+      height: 2px;
+      background-color: black;
+      top: 50%;
+      transform-origin: 100%;
+      transform: rotate(90deg);
+    }
+
+    #minute {
+      height: 1px;
+      background-color: gray;
+    }
+
+    #second {
+      height: 1px;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+
+<div id="clock"></div>
+
+<script>
+  function updateClock() {
+    const now = new Date();
+    const hours = now.getHours() % 12;
+    const minutes = now.getMinutes();
+    const seconds = now.getSeconds();
+
+    const hourElement = document.getElementById('hour');
+    const minuteElement = document.getElementById('minute');
+    const secondElement = document.getElementById('second');
+
+    const hourDegrees = (hours + minutes / 60) * 360 / 12;
+    const minuteDegrees = (minutes + seconds / 60) * 360 / 60;
+    const secondDegrees = (seconds / 60) * 360;
+
+    hourElement.style.transform = `rotate(${hourDegrees}deg)`;
+    minuteElement.style.transform = `rotate(${minuteDegrees}deg)`;
+    secondElement.style.transform = `rotate(${secondDegrees}deg)`;
+  }
+
+  setInterval(updateClock, 1000);
+  updateClock(); // Initial update
+
+</script>
+
+</body>
+</html>
