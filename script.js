@@ -1,4 +1,7 @@
-alert("Hello! I am an alert box!!");
+window.onload = function() {
+  alert("Hallo Welt");
+};
+
 import { MonitoringData } from "@nzxt/web-integrations-types/v1";
 
 const { height, width, targetFps, shape } = window.nzxt.v1;
