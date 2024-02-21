@@ -1,2 +1,2 @@
 alert("Hallo Welt");
-};
+
