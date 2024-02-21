@@ -1,5 +1,3 @@
-window.onload = function() {
-  alert("Hallo Welt");
 
 import { MonitoringData } from "@nzxt/web-integrations-types/v1";
 
